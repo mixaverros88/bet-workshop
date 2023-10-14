@@ -1,7 +1,6 @@
-package gr.opap.placebet.entity;
+package gr.opap.retrievebet.entity;
 
-
-import gr.opap.placebet.dto.BetDto;
+import gr.opap.retrievebet.dto.BetDto;
 import jakarta.persistence.*;
 
 

@@ -8,8 +8,8 @@
 
           <div class="input-wrapper">
             <label for="password" class="input-label">Bet Amount</label>
-            <Field name="betAmount" v-model="bet.amount" type="text" class="input-text"/>
-            <ErrorMessage name="betAmount" class="input-warring"/>
+            <Field name="amount" v-model="bet.amount" type="text" class="input-text"/>
+            <ErrorMessage name="amount" class="input-warring"/>
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-1 rounded">Submit</button>
           </div>
 
@@ -36,7 +36,7 @@ const bet = ref({} as Bet);
 let msg = ref();
 
 const schema = yup.object({
-  betAmount: yup.string().required(),
+  amount: yup.string().required(),
 });
 
 function onSubmit(values: any) {

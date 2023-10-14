@@ -1,14 +1,19 @@
-package gr.opap.placebet.dto;
+package gr.opap.retrievebet.dto;
 
-import jakarta.validation.constraints.Positive;
+
+import gr.opap.retrievebet.entity.Bet;
 
 public class BetDto {
 
   private Long id;
-  @Positive
   private Double amount;
 
   public BetDto() {
+  }
+
+  public BetDto(Bet bet) {
+    this.id = bet.getId();
+    this.amount = bet.getAmount();
   }
 
   public Long getId() {

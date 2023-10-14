@@ -19,7 +19,7 @@ public class BetController {
   BetService betService;
 
   @PostMapping
-  public BetDto add(@RequestBody final BetDto betDto) {
+  public String add(@RequestBody final BetDto betDto) {
     return betService.add(betDto);
   }
 

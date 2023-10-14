@@ -1,0 +1,19 @@
+#FROM openjdk:11-jdk-slim
+#COPY /build/libs/publisher-0.0.1-SNAPSHOT.jar publisher-0.0.1-SNAPSHOT.jar
+#EXPOSE 8181
+#ENTRYPOINT ["java","-agentlib:jdwp=transport=dt_socket,address=8001,server=y,suspend=n","-Djava.security.egd=file:/dev/./urandom", "-jar","publisher-0.0.1-SNAPSHOT.jar"]
+
+# Use the openjdk:11-jdk-slim base image
+FROM openjdk:17-jdk-slim
+
+# Set environment variable for the debug port
+ENV JAVA_TOOL_OPTIONS="-agentlib:jdwp=transport=dt_socket,address=*:8002,server=y,suspend=n"
+
+# Copy your application code to the container
+COPY /build/libs/retrieve-bet-0.0.1-SNAPSHOT.jar retrieve-bet-0.0.1-SNAPSHOT.jar
+
+# Expose the debug port
+EXPOSE 8182
+
+# Start the application
+CMD ["java", "-jar", "retrieve-bet-0.0.1-SNAPSHOT.jar"]

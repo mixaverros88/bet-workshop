@@ -17,12 +17,11 @@ services:
       - "15672:15672"
       - "5672:5672"
   workshop-bet-app-front-end:
-    build: ./panel
+    #build: ./panel
     container_name: workshop-bet-app-front-end
-    image: workshop-bet-app-front-end
+    image: workshop-bet-app-front-end:latest
     ports:
-      - "8080:8585"
-      - "8111:80"
+      - "80:80"
   workshop-place-bet:
     #build: ./panel
     container_name: workshop-place-bet
@@ -30,3 +29,11 @@ services:
     ports:
       - "8181:8181"
       - "8001:8001"
+  workshop-retrieve-bet:
+    #build: ./panel
+    container_name: workshop-retrieve-bet
+    image: workshop-retrieve-bet:latest
+    ports:
+      - "8182:8181"
+      - "8002:8001"
+
