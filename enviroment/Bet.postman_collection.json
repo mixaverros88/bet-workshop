@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "65b8680a-40cc-4ca9-9bf0-a0dc7211ffa3",
+		"name": "Bet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8078214",
+		"_collection_link": "https://restless-shadow-7681.postman.co/workspace/workshop~816c14ba-4818-467f-9eb5-34b6f370054f/collection/8078214-65b8680a-40cc-4ca9-9bf0-a0dc7211ffa3?action=share&source=collection_link&creator=8078214"
+	},
+	"item": [
+		{
+			"name": "Place",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8181/api/v1/bet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"v1",
+						"bet"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

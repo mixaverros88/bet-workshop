@@ -26,7 +26,7 @@ services:
   workshop-place-bet:
     #build: ./panel
     container_name: workshop-place-bet
-    image: workshop-place-bet
+    image: workshop-place-bet:latest
     ports:
       - "8181:8181"
       - "8001:8001"
