@@ -35,7 +35,6 @@ const hasBets = ref(true);
 
 
 let getAllBets = () => {
-  isLoading.value = true;
   retrieveBets().then(b => {
     bets.value = b.data
     showTotalRevenue.value = true;
@@ -44,7 +43,6 @@ let getAllBets = () => {
     } else {
       hasBets.value = true
     }
-    isLoading.value = false;
   })
 }
 

@@ -1,0 +1,32 @@
+version: "3.3"
+services:
+  workshop-bet-app-mysql:
+    build: ./devOps/docker/mysql
+    container_name: workshop-bet-app-mysql
+    image: workshop-bet-app-mysql
+    ports:
+      - "3312:3306"
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    env_file: .env
+  workshop-bet-app-rabbit-mq:
+    container_name: workshop-bet-app-rabbit-mq
+    image: rabbitmq:management
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+  workshop-bet-app-front-end:
+    build: ./panel
+    container_name: workshop-bet-app-front-end
+    image: workshop-bet-app-front-end
+    ports:
+      - "8080:8585"
+      - "8111:80"
+  workshop-place-bet:
+    #build: ./panel
+    container_name: workshop-place-bet
+    image: workshop-place-bet
+    ports:
+      - "8181:8181"
+      - "8001:8001"
