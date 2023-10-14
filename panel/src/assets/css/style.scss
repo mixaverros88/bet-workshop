@@ -1,0 +1,43 @@
+.input-wrapper-search {
+  @apply md:w-4/6 md:mr-3 md:px-0 md:py-0 md:mt-0 sm:py-2 sm:px-2 xs:w-full xs:mt-3
+}
+
+.input-select {
+  @apply block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500;
+}
+
+.search-buttons {
+  @apply my-auto md:w-2/6 md:ml-2 md:mt-3 xs:w-full xs:mt-5
+}
+
+.input-wrapper {
+  @apply relative z-0 w-full mb-6;
+}
+
+.input-label {
+  @apply block mb-2 text-sm font-medium text-gray-900 dark:text-white;
+}
+
+.input-text {
+  @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+}
+
+.input-warring {
+  @apply text-red-600 text-sm italic;
+}
+
+.global {
+  @apply my-3
+}
+
+.ck-editor__editable {
+  min-height: 200px;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
