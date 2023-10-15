@@ -36,6 +36,39 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Retrieve",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8182/api/v1/bet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8182",
+					"path": [
+						"api",
+						"v1",
+						"bet"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

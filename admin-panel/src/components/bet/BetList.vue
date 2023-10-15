@@ -12,6 +12,7 @@
           </thead>
           <tbody>
           <tr v-for="bet in bets" v-bind:key="bet.amount" class="main-table-row-tr">
+            <th scope="row" class="main-table-row-th">{{ bet.id }}</th>
             <th scope="row" class="main-table-row-th">{{ bet.amount }}</th>
           </tr>
           </tbody>

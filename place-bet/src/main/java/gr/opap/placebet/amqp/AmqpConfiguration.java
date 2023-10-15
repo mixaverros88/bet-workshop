@@ -37,8 +37,6 @@ public class AmqpConfiguration {
     return BindingBuilder.bind(queue).to(exchange).with(BET_QUEUE);
   }
 
-
-  // You can comment the two methods below to use the default serialization / deserialization (instead of JSON)
   @Bean
   public RabbitTemplate rabbitTemplate(final ConnectionFactory connectionFactory) {
     RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);

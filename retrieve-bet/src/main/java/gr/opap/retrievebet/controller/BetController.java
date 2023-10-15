@@ -13,7 +13,6 @@ import java.util.List;
 @RequestMapping("/api/v1/bet")
 public class BetController {
   Logger logger = LoggerFactory.getLogger(BetController.class);
-
   @Autowired
   BetService betService;
 

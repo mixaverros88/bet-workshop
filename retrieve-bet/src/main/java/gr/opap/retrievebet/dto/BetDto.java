@@ -31,4 +31,12 @@ public class BetDto {
   public void setAmount(Double amount) {
     this.amount = amount;
   }
+
+  @Override
+  public String toString() {
+    return "BetDto{" +
+            "id=" + id +
+            ", amount=" + amount +
+            '}';
+  }
 }

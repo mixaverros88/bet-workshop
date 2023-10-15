@@ -16,24 +16,23 @@ services:
     ports:
       - "15672:15672"
       - "5672:5672"
-  workshop-bet-app-front-end:
-    #build: ./panel
-    container_name: workshop-bet-app-front-end
-    image: workshop-bet-app-front-end:latest
+  workshop-bet-app-admin-panel:
+    build: ./admin-panel
+    container_name: workshop-bet-app-admin-panel
+    image: workshop-bet-app-admin-panel
     ports:
       - "80:80"
-  workshop-place-bet:
-    #build: ./panel
-    container_name: workshop-place-bet
-    image: workshop-place-bet:latest
+  workshop-bet-app-place-bet:
+    build: ./place-bet
+    container_name: workshop-bet-app-place-bet
+    image: workshop-bet-app-place-bet:latest
     ports:
       - "8181:8181"
       - "8001:8001"
-  workshop-retrieve-bet:
-    #build: ./panel
-    container_name: workshop-retrieve-bet
-    image: workshop-retrieve-bet:latest
+  workshop-bet-app-retrieve-bet:
+    build: ./retrieve-bet
+    container_name: workshop-bet-app-retrieve-bet
+    image: workshop-bet-app-retrieve-bet:latest
     ports:
-      - "8182:8181"
+      - "8182:8182"
       - "8002:8001"
-

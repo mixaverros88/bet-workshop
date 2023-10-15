@@ -11,8 +11,6 @@ public class AmqpConfiguration {
 
   public static final String BET_QUEUE = "bet";
 
-
-  // You can comment the two methods below to use the default serialization / deserialization (instead of JSON)
   @Bean
   public RabbitTemplate rabbitTemplate(final ConnectionFactory connectionFactory) {
     RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);

@@ -18,11 +18,8 @@ public class BetService {
   @Autowired
   Publisher publisher;
 
-  public String add(@Valid final BetDto betDto) {
+  public void add(@Valid final BetDto betDto) {
     publisher.publish(BET_EXCHANGE, betDto);
-    return "added";
   }
-
-
 
 }

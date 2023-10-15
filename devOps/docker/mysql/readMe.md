@@ -1,10 +1,10 @@
 ### Build Image
 
-docker build -t bet-app-mysql .
+docker build -t workshop-bet-app-mysql .
 
 ### Run Image
 
-docker run -d -p 3311:3306 --name bet-app-mysql bet-app-mysql
+docker run -d -p 3311:3306 --name workshop-bet-app-mysql workshop-bet-app-mysql
 
 ### Find version of mysql
 

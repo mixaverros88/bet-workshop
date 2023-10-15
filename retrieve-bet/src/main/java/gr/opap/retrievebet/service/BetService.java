@@ -22,6 +22,4 @@ public class BetService {
     return betRepository.findAll().stream().map(BetDto::new).collect(Collectors.toList());
   }
 
-
-
 }

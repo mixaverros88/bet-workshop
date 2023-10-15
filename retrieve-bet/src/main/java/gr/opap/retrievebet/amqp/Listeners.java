@@ -19,8 +19,8 @@ public class Listeners {
   BetRepository betRepository;
 
   @RabbitListener(queues = AmqpConfiguration.BET_QUEUE)
-  public void userEmailVerification(@Payload BetDto betDto) {
-    logger.info("userEmailVerification: {}", betDto);
+  public void betListener(@Payload BetDto betDto) {
+    logger.info("betListener: {}", betDto);
     betRepository.save(new Bet(betDto));
   }
 
