@@ -1,0 +1,42 @@
+{
+	"info": {
+		"_postman_id": "231422dc-9016-423d-8176-e739cb80f5c7",
+		"name": "Antifraud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8078214",
+		"_collection_link": "https://restless-shadow-7681.postman.co/workspace/workshop~816c14ba-4818-467f-9eb5-34b6f370054f/collection/8078214-231422dc-9016-423d-8176-e739cb80f5c7?action=share&source=collection_link&creator=8078214"
+	},
+	"item": [
+		{
+			"name": "Validate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 10000,\r\n    \"homeTeam\": \"Liverpool\",\r\n    \"awayTeam\": \"Alkmaar\",\r\n    \"selection\": \"X\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8182/api/v1/antifraud/check",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8182",
+					"path": [
+						"api",
+						"v1",
+						"antifraud",
+						"check"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
