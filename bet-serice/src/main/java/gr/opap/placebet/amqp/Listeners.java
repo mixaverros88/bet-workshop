@@ -12,10 +12,9 @@ public class Listeners {
 
   Logger logger = LoggerFactory.getLogger(Listeners.class);
 
-
-  @RabbitListener(queues = AmqpConfiguration.USER_EMAIL_VERIFICATION)
-  public void userEmailVerification(@Valid @Payload String message) {
-    logger.info("userEmailVerification: {}", message);
+  @RabbitListener(queues = AmqpConfiguration.TEST_QUEUE)
+  public void testListener(@Valid @Payload String message) {
+    logger.info("testListener: {}", message);
   }
 
 }

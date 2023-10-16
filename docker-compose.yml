@@ -22,17 +22,17 @@ services:
     image: workshop-bet-app-admin-panel
     ports:
       - "80:80"
-  workshop-bet-app-place-bet:
-    build: ./place-bet
-    container_name: workshop-bet-app-place-bet
-    image: workshop-bet-app-place-bet:latest
+  workshop-bet-app-bet-serice:
+    build: ./bet-serice
+    container_name: workshop-bet-app-bet-serice
+    image: workshop-bet-app-bet-serice:latest
     ports:
       - "8181:8181"
       - "8001:8001"
-  workshop-bet-app-retrieve-bet:
-    build: ./retrieve-bet
-    container_name: workshop-bet-app-retrieve-bet
-    image: workshop-bet-app-retrieve-bet:latest
+  workshop-bet-app-antifraud-serice:
+    build: ./antifraud-serice
+    container_name: workshop-bet-app-antifraud-serice
+    image: workshop-bet-app-antifraud-serice:latest
     ports:
       - "8182:8182"
       - "8002:8001"

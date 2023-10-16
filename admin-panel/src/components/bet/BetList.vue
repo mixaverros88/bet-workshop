@@ -8,12 +8,18 @@
           <tr>
             <th scope="col" class="main-th">ID</th>
             <th scope="col" class="main-th">Amount</th>
+            <th scope="col" class="main-th">Home Team</th>
+            <th scope="col" class="main-th">Away Team</th>
+            <th scope="col" class="main-th">Selection</th>
           </tr>
           </thead>
           <tbody>
           <tr v-for="bet in bets" v-bind:key="bet.amount" class="main-table-row-tr">
             <th scope="row" class="main-table-row-th">{{ bet.id }}</th>
             <th scope="row" class="main-table-row-th">{{ bet.amount }}</th>
+            <th scope="row" class="main-table-row-th">{{ bet.homeTeam }}</th>
+            <th scope="row" class="main-table-row-th">{{ bet.awayTeam }}</th>
+            <th scope="row" class="main-table-row-th">{{ bet.selection }}</th>
           </tr>
           </tbody>
         </table>

@@ -14,10 +14,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AmqpConfiguration {
 
-  public static final String USER_EMAIL_VERIFICATION = "user.email.verification";
   public static final String BET_QUEUE = "bet";
+
   public static final String BET_EXCHANGE = "bet";
 
+  public static final String TEST_QUEUE = "bet";
+  public static final String TEST_EXCHANGE = "bet";
   @Bean
   @Qualifier("betQueue")
   Queue betQueue() {
@@ -37,6 +39,24 @@ public class AmqpConfiguration {
     return BindingBuilder.bind(queue).to(exchange).with(BET_QUEUE);
   }
 
+  @Bean
+  @Qualifier("testQueue")
+  Queue testQueue() {
+    return new Queue(TEST_QUEUE, false);
+  }
+
+  @Bean
+  @Qualifier("testExchange")
+  DirectExchange testExchange() {
+    return new DirectExchange(TEST_EXCHANGE);
+  }
+
+  @Bean
+  Binding testBinding(
+          @Qualifier("testQueue") Queue queue,
+          @Qualifier("testExchange") DirectExchange exchange) {
+    return BindingBuilder.bind(queue).to(exchange).with(TEST_QUEUE);
+  }
   @Bean
   public RabbitTemplate rabbitTemplate(final ConnectionFactory connectionFactory) {
     RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
