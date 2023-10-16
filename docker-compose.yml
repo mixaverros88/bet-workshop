@@ -10,29 +10,16 @@ services:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     env_file: .env
-  workshop-bet-app-rabbit-mq:
-    container_name: workshop-bet-app-rabbit-mq
-    image: rabbitmq:management
-    ports:
-      - "15672:15672"
-      - "5672:5672"
-  workshop-bet-app-admin-panel:
-    build: ./admin-panel
-    container_name: workshop-bet-app-admin-panel
-    image: workshop-bet-app-admin-panel
+  workshop-bet-ui:
+    build: ./bet-ui
+    container_name: workshop-bet-ui
+    image: workshop-bet-ui
     ports:
       - "80:80"
   workshop-bet-app-bet-serice:
-    build: ./bet-serice
+    build: ./bet-service
     container_name: workshop-bet-app-bet-serice
     image: workshop-bet-app-bet-serice:latest
     ports:
       - "8181:8181"
       - "8001:8001"
-  workshop-bet-app-antifraud-serice:
-    build: ./antifraud-serice
-    container_name: workshop-bet-app-antifraud-serice
-    image: workshop-bet-app-antifraud-serice:latest
-    ports:
-      - "8182:8182"
-      - "8002:8001"

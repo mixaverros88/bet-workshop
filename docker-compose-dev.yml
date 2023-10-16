@@ -1,47 +1,23 @@
 version: "3.3"
 services:
   workshop-bet-app-mysql:
+    build: ./devOps/docker/mysql
     container_name: workshop-bet-app-mysql
-    image: workshop-bet-app-mysql:latest
+    image: workshop-bet-app-mysql
     ports:
       - "3312:3306"
     environment:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     env_file: .env
-  workshop-bet-app-rabbit-mq:
-    container_name: workshop-bet-app-rabbit-mq
-    image: rabbitmq:management
-    ports:
-      - "15672:15672"
-      - "5672:5672"
-  workshop-bet-app-adm-panel:
-    #build: ./panel
-    container_name: workshop-bet-app-adm-panel
-    image: workshop-bet-app-adm-panel:latest
+  workshop-bet-ui:
+    container_name: workshop-bet-ui
+    image: workshop-bet-ui
     ports:
       - "80:80"
-    depends_on:
-      - workshop-bet-app-mysql
-      - workshop-bet-app-adm-panel
-  workshop-place-bet:
-    #build: ./panel
-    container_name: workshop-place-bet
-    image: workshop-place-bet:latest
+  workshop-bet-app-bet-serice:
+    container_name: workshop-bet-app-bet-serice
+    image: workshop-bet-app-bet-serice:latest
     ports:
       - "8181:8181"
       - "8001:8001"
-    depends_on:
-      - workshop-bet-app-mysql
-      - workshop-bet-app-adm-panel
-  workshop-retrieve-bet:
-    #build: ./panel
-    container_name: workshop-retrieve-bet
-    image: workshop-retrieve-bet:latest
-    ports:
-      - "8182:8181"
-      - "8002:8001"
-    depends_on:
-      - workshop-bet-app-mysql
-      - workshop-bet-app-adm-panel
-

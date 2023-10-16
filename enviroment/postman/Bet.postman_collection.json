@@ -14,7 +14,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"amount\": 10\r\n}",
+					"raw": "{\r\n    \"amount\": 1,\r\n    \"homeTeam\": \"Liverpool\",\r\n    \"awayTeam\": \"Alkmaar\",\r\n    \"selection\": \"X\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -55,12 +55,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8182/api/v1/bet",
+					"raw": "http://localhost:8181/api/v1/bet",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8182",
+					"port": "8181",
 					"path": [
 						"api",
 						"v1",
