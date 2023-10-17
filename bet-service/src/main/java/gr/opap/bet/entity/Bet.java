@@ -11,75 +11,75 @@ import java.io.Serializable;
 @Table(name = "BET")
 public class Bet implements Serializable {
 
-  @Serial
-  private static final long serialVersionUID = -8377964838683591097L;
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
-  private Double amount;
-  private String homeTeam;
-  private String awayTeam;
-  private String selection;
+    @Serial
+    private static final long serialVersionUID = -8377964838683591097L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private Double amount;
+    private String homeTeam;
+    private String awayTeam;
+    private String selection;
 
-  public Bet() {
-  }
+    public Bet() {
+    }
 
-  public Bet(BetDto betDto) {
-    this.id = betDto.getId();
-    this.amount = betDto.getAmount();
-    this.awayTeam = betDto.getAwayTeam();
-    this.homeTeam = betDto.getHomeTeam();
-    this.selection = betDto.getSelection();
-  }
+    public Bet(BetDto betDto) {
+        this.id = betDto.getId();
+        this.amount = betDto.getAmount();
+        this.awayTeam = betDto.getAwayTeam();
+        this.homeTeam = betDto.getHomeTeam();
+        this.selection = betDto.getSelection();
+    }
 
-  public Long getId() {
-    return id;
-  }
+    public Long getId() {
+        return id;
+    }
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-  public Double getAmount() {
-    return amount;
-  }
+    public Double getAmount() {
+        return amount;
+    }
 
-  public void setAmount(Double amount) {
-    this.amount = amount;
-  }
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
 
-  public String getHomeTeam() {
-    return homeTeam;
-  }
+    public String getHomeTeam() {
+        return homeTeam;
+    }
 
-  public void setHomeTeam(String homeTeam) {
-    this.homeTeam = homeTeam;
-  }
+    public void setHomeTeam(String homeTeam) {
+        this.homeTeam = homeTeam;
+    }
 
-  public String getAwayTeam() {
-    return awayTeam;
-  }
+    public String getAwayTeam() {
+        return awayTeam;
+    }
 
-  public void setAwayTeam(String awayTeam) {
-    this.awayTeam = awayTeam;
-  }
+    public void setAwayTeam(String awayTeam) {
+        this.awayTeam = awayTeam;
+    }
 
-  public String getSelection() {
-    return selection;
-  }
+    public String getSelection() {
+        return selection;
+    }
 
-  public void setSelection(String selection) {
-    this.selection = selection;
-  }
+    public void setSelection(String selection) {
+        this.selection = selection;
+    }
 
-  @Override
-  public String toString() {
-    return "Bet{" +
+    @Override
+    public String toString() {
+        return "Bet{" +
             "id=" + id +
             ", amount=" + amount +
             ", homeTeam='" + homeTeam + '\'' +
             ", awayTeam='" + awayTeam + '\'' +
             ", selection='" + selection + '\'' +
             '}';
-  }
+    }
 }

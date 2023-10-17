@@ -12,14 +12,13 @@ import org.springframework.web.context.request.WebRequest;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-  Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+    Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
-
-  @ExceptionHandler({BetIsNotValid.class})
-  public final ProblemDetail handleBadRequest(Exception ex, WebRequest req) {
-    logger.info("handleBadRequest - Exception: {} , WebRequest: {}", ex, req);
-    return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, ex.getMessage());
-  }
+    @ExceptionHandler({BetIsNotValid.class})
+    public final ProblemDetail handleBadRequest(Exception ex, WebRequest req) {
+        logger.info("handleBadRequest - Exception: {} , WebRequest: {}", ex, req);
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, ex.getMessage());
+    }
 
 
 }

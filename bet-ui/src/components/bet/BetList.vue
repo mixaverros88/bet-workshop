@@ -32,7 +32,7 @@
 
 <script lang="ts" setup>
 import {ref} from "vue";
-import { retrieveBets } from '@/api/api'
+import {retrieveBets} from '@/api/api'
 import {Bet} from "@/models/bet/Bet";
 import BaseAlert from "@/components/common/BaseAlert.vue";
 

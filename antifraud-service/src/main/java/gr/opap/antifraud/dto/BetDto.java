@@ -3,69 +3,61 @@ package gr.opap.antifraud.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 
-public class BetDto {
+import java.io.Serializable;
 
-  private Long id;
-  @Positive
-  private Double amount;
-  @NotBlank
-  private String homeTeam;
-  @NotBlank
-  private String awayTeam;
-  @NotBlank
-  private String selection;
+public class BetDto implements Serializable {
 
-  public BetDto() {
-  }
+    @Positive
+    private Double amount;
+    @NotBlank
+    private String homeTeam;
+    @NotBlank
+    private String awayTeam;
+    @NotBlank
+    private String selection;
 
-  public Long getId() {
-    return id;
-  }
+    public BetDto() {
+    }
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    public Double getAmount() {
+        return amount;
+    }
 
-  public Double getAmount() {
-    return amount;
-  }
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
 
-  public void setAmount(Double amount) {
-    this.amount = amount;
-  }
+    public String getHomeTeam() {
+        return homeTeam;
+    }
 
-  public String getHomeTeam() {
-    return homeTeam;
-  }
+    public void setHomeTeam(String homeTeam) {
+        this.homeTeam = homeTeam;
+    }
 
-  public void setHomeTeam(String homeTeam) {
-    this.homeTeam = homeTeam;
-  }
+    public String getAwayTeam() {
+        return awayTeam;
+    }
 
-  public String getAwayTeam() {
-    return awayTeam;
-  }
+    public void setAwayTeam(String awayTeam) {
+        this.awayTeam = awayTeam;
+    }
 
-  public void setAwayTeam(String awayTeam) {
-    this.awayTeam = awayTeam;
-  }
+    public String getSelection() {
+        return selection;
+    }
 
-  public String getSelection() {
-    return selection;
-  }
+    public void setSelection(String selection) {
+        this.selection = selection;
+    }
 
-  public void setSelection(String selection) {
-    this.selection = selection;
-  }
-
-  @Override
-  public String toString() {
-    return "BetDto{" +
-            "id=" + id +
+    @Override
+    public String toString() {
+        return "BetDto{" +
             ", amount=" + amount +
             ", homeTeam='" + homeTeam + '\'' +
             ", awayTeam='" + awayTeam + '\'' +
             ", selection='" + selection + '\'' +
             '}';
-  }
+    }
 }

@@ -14,20 +14,21 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/bet")
 public class BetController {
-  Logger logger = LoggerFactory.getLogger(BetController.class);
 
-  @Autowired
-  BetService betService;
+    Logger logger = LoggerFactory.getLogger(BetController.class);
 
-  @PostMapping
-  public ResponseEntity place(@Valid @RequestBody final BetDto betDto) {
-    betService.place(betDto);
-    return ResponseEntity.ok().build();
-  }
+    @Autowired
+    BetService betService;
 
-  @GetMapping
-  public List<BetDto> retrieveBet() {
-    return betService.retrieveBet();
-  }
+    @PostMapping
+    public ResponseEntity place(@Valid @RequestBody final BetDto betDto) {
+        betService.place(betDto);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping
+    public List<BetDto> retrieveBet() {
+        return betService.retrieveBet();
+    }
 
 }

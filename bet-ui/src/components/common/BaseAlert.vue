@@ -2,11 +2,13 @@
 <template>
 
   <div :class="computeCss()" role="alert">
-    <svg class="flex-shrink-0 inline w-4 h-4 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+    <svg class="flex-shrink-0 inline w-4 h-4 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+         fill="currentColor" viewBox="0 0 20 20">
+      <path
+          d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
     </svg>
     <div>
-      <span class="font-medium">{{title}}</span> {{description}}
+      <span class="font-medium">{{ title }}</span> {{ description }}
     </div>
   </div>
 
@@ -30,9 +32,9 @@ const props = defineProps({
   }
 })
 
-function computeCss(){
+function computeCss() {
   let ins = "blue";
-  switch (props.mode){
+  switch (props.mode) {
     case ("ERROR"):
       ins = "red"
     case ("SUCCESS"):
@@ -42,7 +44,7 @@ function computeCss(){
     case ("WARNING"):
       ins = "yellow"
   }
-  return "flex items-center p-4 mb-4 text-sm text-"+ ins + "-800 border border-"+ ins + "-300 rounded-lg bg-"+ ins + "-50 dark:bg-gray-800 dark:text-"+ ins + "-400 dark:border-"+ ins + "-800"
+  return "flex items-center p-4 mb-4 text-sm text-" + ins + "-800 border border-" + ins + "-300 rounded-lg bg-" + ins + "-50 dark:bg-gray-800 dark:text-" + ins + "-400 dark:border-" + ins + "-800"
 }
 
 

@@ -9,17 +9,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class AntifraudService {
 
-  Logger logger = LoggerFactory.getLogger(AntifraudService.class);
+    Logger logger = LoggerFactory.getLogger(AntifraudService.class);
 
-  public ResponseEntity validateBet(BetDto betDto) {
-    if(
+    public boolean validateBet(BetDto betDto) {
+        if (
             betDto.getHomeTeam().equalsIgnoreCase("Liverpool") &&
-            betDto.getAwayTeam().equalsIgnoreCase("Alkmaar") &&
-            betDto.getAmount() > 1000
-    ){
-      return ResponseEntity.badRequest().body(""); // TODO: add response body
+                betDto.getAwayTeam().equalsIgnoreCase("Alkmaar") &&
+                betDto.getAmount() > 1000
+        ) {
+            return false;
+        }
+        return true;
     }
-    return ResponseEntity.ok().build();
-  }
 
 }

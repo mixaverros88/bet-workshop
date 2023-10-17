@@ -14,22 +14,22 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class ValidationHandler {
 
-  Logger logger = LoggerFactory.getLogger(ValidationHandler.class);
+    Logger logger = LoggerFactory.getLogger(ValidationHandler.class);
 
-  @ExceptionHandler(MethodArgumentNotValidException.class)
-  protected ProblemDetail handleMethodArgumentNotValid(
-      MethodArgumentNotValidException ex) {
-    logger.info("handleMethodArgumentNotValid - MethodArgumentNotValidException: {}", ex.getMessage());
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    protected ProblemDetail handleMethodArgumentNotValid(
+        MethodArgumentNotValidException ex) {
+        logger.info("handleMethodArgumentNotValid - MethodArgumentNotValidException: {}", ex.getMessage());
 
-    List<String> errors = new ArrayList<>();
-    ex.getBindingResult().getAllErrors().forEach(error -> {
-      String fieldName = ((FieldError) error).getField();
-      String message = error.getDefaultMessage();
-      errors.add("Field Name: " + fieldName + " Message: " + message);
-    });
+        List<String> errors = new ArrayList<>();
+        ex.getBindingResult().getAllErrors().forEach(error -> {
+            String fieldName = ((FieldError) error).getField();
+            String message = error.getDefaultMessage();
+            errors.add("Field Name: " + fieldName + " Message: " + message);
+        });
 
-    logger.info("MethodArgumentNotValidException: {}", errors);
-    return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, errors.toString());
-  }
+        logger.info("MethodArgumentNotValidException: {}", errors);
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, errors.toString());
+    }
 
 }
