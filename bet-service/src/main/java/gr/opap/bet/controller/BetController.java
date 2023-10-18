@@ -23,7 +23,7 @@ public class BetController {
     @PostMapping
     public ResponseEntity place(@Valid @RequestBody final BetDto betDto) {
         betService.place(betDto);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.accepted().build();
     }
 
     @GetMapping

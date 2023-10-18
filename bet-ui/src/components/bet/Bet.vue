@@ -87,7 +87,7 @@ const schema = yup.object({
 function onSubmit(values: any) {
   addBet(values).then(() => {
     isSuccess.value = true
-    msg.value = "Bet has been created Successfully";
+    msg.value = "Bet has been accepted";
     setTimeout(() => isSuccess.value = false, 3000);
   }).catch((error: any) => {
     hasError.value = true
