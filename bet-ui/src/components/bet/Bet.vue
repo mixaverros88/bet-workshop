@@ -7,29 +7,18 @@
         <div class="grid md:grid-cols-2 md:gap-6">
 
           <div class="input-wrapper">
-            <label for="amount" class="input-label">Bet Amount</label>
-            <Field name="amount" v-model="bet.amount" type="text" class="input-text"/>
-            <ErrorMessage name="amount" class="input-warring"/>
-          </div>
-
-          <div class="input-wrapper">
             <label for="homeTeam" class="input-label">Home Team</label>
-            <!--            <Field name="homeTeam" v-model="bet.homeTeam" type="text" class="input-text"/>-->
-
             <Field name="homeTeam" v-model="bet.homeTeam" as="select" class="input-select">
               <option value="" disabled>Select Home Team</option>
               <option v-for="team in teams" :key="team" :value="team">
                 {{ team }}
               </option>
             </Field>
-
             <ErrorMessage name="homeTeam" class="input-warring"/>
           </div>
 
           <div class="input-wrapper">
             <label for="awayTeam" class="input-label">Away Team</label>
-            <!--            <Field name="awayTeam" v-model="bet.awayTeam" type="text" class="input-text"/>-->
-
             <Field name="awayTeam" v-model="bet.awayTeam" as="select" class="input-select">
               <option value="" disabled>Select Away Team</option>
               <option v-for="team in teams" :key="team" :value="team">
@@ -41,19 +30,20 @@
 
           <div class="input-wrapper">
             <label for="selection" class="input-label">Selection</label>
-            <!--            <Field name="selection" v-model="bet.selection" type="text" class="input-text"/>-->
-
             <Field name="selection" v-model="bet.selection" as="select" class="input-select">
               <option value="" disabled>Select Selection</option>
               <option v-for="selection in selections" :key="selection" :value="selection">
                 {{ selection }}
               </option>
             </Field>
-
             <ErrorMessage name="selection" class="input-warring"/>
-
           </div>
 
+          <div class="input-wrapper">
+            <label for="amount" class="input-label">Bet Amount</label>
+            <Field name="amount" v-model="bet.amount" type="text" class="input-text"/>
+            <ErrorMessage name="amount" class="input-warring"/>
+          </div>
 
         </div>
 
