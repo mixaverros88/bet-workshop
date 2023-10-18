@@ -22,8 +22,6 @@ public class BetService {
 
     Logger logger = LoggerFactory.getLogger(BetService.class);
 
-    @Value("${antifraud.url}")
-    private String antifraudUrl;
     @Autowired
     Publisher publisher;
     @Autowired
