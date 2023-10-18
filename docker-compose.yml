@@ -16,10 +16,10 @@ services:
     image: workshop-bet-ui
     ports:
       - "80:80"
-  workshop-bet-app-bet-serice:
+  workshop-bet-app-bet-service:
     build: ./bet-service
-    container_name: workshop-bet-app-bet-serice
-    image: workshop-bet-app-bet-serice:latest
+    container_name: workshop-bet-app-bet-service
+    image: workshop-bet-app-bet-service:latest
     ports:
       - "8181:8181"
       - "8001:8001"
