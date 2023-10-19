@@ -11,6 +11,7 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
 import static gr.opap.antifraud.amqp.AmqpConfiguration.BET_VALIDATION_FAILED_ROUTING_KEY;
+import static gr.opap.antifraud.amqp.AmqpConfiguration.BET_VALIDATION_QUEUE;
 import static gr.opap.antifraud.amqp.AmqpConfiguration.BET_VALIDATION_RESULT_EXCHANGE;
 import static gr.opap.antifraud.amqp.AmqpConfiguration.BET_VALIDATION_SUCCESS_ROUTING_KEY;
 
@@ -25,13 +26,14 @@ public class Listeners {
     @Autowired
     Publisher publisher;
 
-    @RabbitListener(queues = AmqpConfiguration.BET_VALIDATION_QUEUE)
+    @RabbitListener(queues = BET_VALIDATION_QUEUE)
     public void betValidationListener(@Payload BetDto betDto) {
+        logger.info("Antifraud service received bet: {} for validation from queue: {}", betDto, BET_VALIDATION_QUEUE);
         if (antifraudService.validateBet(betDto)) {
-            logger.info("Bet: {} is valid", betDto);
+            logger.info("Antifraud service publish a valid bet: {} at exchange: {} with routing key: {}", betDto, BET_VALIDATION_RESULT_EXCHANGE, BET_VALIDATION_SUCCESS_ROUTING_KEY);
             publisher.publish(BET_VALIDATION_RESULT_EXCHANGE, BET_VALIDATION_SUCCESS_ROUTING_KEY, betDto);
         } else {
-            logger.info("Bet: {} is not valid", betDto);
+            logger.info("Antifraud service publish an invalid bet: {} at exchange: {} with routing key: {}", betDto, BET_VALIDATION_RESULT_EXCHANGE, BET_VALIDATION_FAILED_ROUTING_KEY);
             publisher.publish(BET_VALIDATION_RESULT_EXCHANGE, BET_VALIDATION_FAILED_ROUTING_KEY, betDto);
         }
     }

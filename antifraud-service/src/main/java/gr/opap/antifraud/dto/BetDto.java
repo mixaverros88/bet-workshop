@@ -54,7 +54,7 @@ public class BetDto implements Serializable {
     @Override
     public String toString() {
         return "BetDto{" +
-            ", amount=" + amount +
+            "amount=" + amount +
             ", homeTeam='" + homeTeam + '\'' +
             ", awayTeam='" + awayTeam + '\'' +
             ", selection='" + selection + '\'' +

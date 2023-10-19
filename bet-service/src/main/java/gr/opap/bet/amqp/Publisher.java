@@ -18,6 +18,6 @@ public class Publisher {
 
     public void publish(String exchange, String routingKey, Object dto) {
         rabbitTemplate.convertAndSend(exchange, routingKey, dto);
-        logger.info("{} Has been Send Successfully to exchange: {}", dto, exchange);
+        logger.info("{} bet has been send successfully to exchange: {} with routing key: {}", dto, exchange, routingKey);
     }
 }

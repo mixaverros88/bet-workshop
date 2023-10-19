@@ -23,6 +23,9 @@ services:
     ports:
       - "8181:8181"
       - "8001:8001"
+    depends_on:
+      - workshop-bet-app-mysql
+      - workshop-bet-app-rabbit-mq
   workshop-bet-app-antifraud-service:
     build: ./antifraud-service
     container_name: workshop-bet-app-antifraud-service
@@ -30,6 +33,9 @@ services:
     ports:
       - "8182:8182"
       - "8002:8002"
+    depends_on:
+      - workshop-bet-app-mysql
+      - workshop-bet-app-rabbit-mq
   workshop-bet-app-rabbit-mq:
     container_name: workshop-bet-app-rabbit-mq
     image: rabbitmq:management

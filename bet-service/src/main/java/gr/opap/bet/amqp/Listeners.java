@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
+import static gr.opap.bet.amqp.AmqpConfiguration.BET_VALIDATION_FAILED_QUEUE;
+import static gr.opap.bet.amqp.AmqpConfiguration.BET_VALIDATION_SUCCESS_QUEUE;
+
 @Component
 public class Listeners {
 
@@ -18,15 +21,15 @@ public class Listeners {
     @Autowired
     BetRepository betRepository;
 
-    @RabbitListener(queues = AmqpConfiguration.BET_VALIDATION_SUCCESS_QUEUE)
+    @RabbitListener(queues = BET_VALIDATION_SUCCESS_QUEUE)
     public void betValidationSuccessListener(@Payload BetDto betDto) {
-        logger.info("Success Bet: {}", betDto);
+        logger.info("Bet Service received a valid Bet: {} from queue: {}", betDto, BET_VALIDATION_SUCCESS_QUEUE);
         betRepository.save(new Bet(betDto));
     }
 
-    @RabbitListener(queues = AmqpConfiguration.BET_VALIDATION_FAILED_QUEUE)
+    @RabbitListener(queues = BET_VALIDATION_FAILED_QUEUE)
     public void betValidationFailedListener(@Payload BetDto betDto) {
-        logger.info("Failed Bet: {}", betDto);
+        logger.info("Bet Service received an invalid Bet: {} from queue: {}", betDto, BET_VALIDATION_FAILED_QUEUE);
     }
 
 }
