@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
@@ -40,7 +41,9 @@ public class BetService {
 
         try {
             restTemplate.postForObject(antifraudUrl, betDto, String.class);
+            logger.info("Antifraud service response with success for bet: {}", betDto);
         } catch (HttpClientErrorException e) {
+            logger.info("Antifraud service response with http status code: {} for bet {}",e.getStatusCode(), betDto);
             throw new BetIsNotValid(e.getResponseBodyAsString());
         } catch (Exception e) {
             throw new RuntimeException("An error has been occurred");

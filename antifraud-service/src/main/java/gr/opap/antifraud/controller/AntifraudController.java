@@ -18,6 +18,7 @@ public class AntifraudController {
 
     @PostMapping
     public ResponseEntity<String> validateBet(@RequestBody final BetDto betDto) {
+        logger.info("Antifraud controller has received bet: {}", betDto);
         return antifraudService.validateBet(betDto);
     }
 

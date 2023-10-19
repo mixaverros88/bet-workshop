@@ -10,10 +10,10 @@ FROM openjdk:17-jdk-slim
 ENV JAVA_TOOL_OPTIONS="-agentlib:jdwp=transport=dt_socket,address=*:8001,server=y,suspend=n"
 
 # Copy your application code to the container
-COPY --from=build /home/gradle/src/build/libs/bet-service-0.0.1-SNAPSHOT.jar bet-serice.jar
+COPY --from=build /home/gradle/src/build/libs/bet-service-0.0.1-SNAPSHOT.jar bet-service.jar
 
 # Expose the debug port
 EXPOSE 8181
 
 # Start the application
-CMD ["java", "-jar", "bet-serice.jar"]
+CMD ["java", "-jar", "bet-service.jar"]
