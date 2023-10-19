@@ -28,6 +28,7 @@ public class BetService {
     public void place(@Valid final BetDto betDto) {
         validateBet(betDto);
         betRepository.save(new Bet(betDto));
+        logger.info("Bet has been added successfully to database");
     }
 
     public List<BetDto> retrieve() {
