@@ -22,6 +22,7 @@ public class BetController {
     @PostMapping
     public ResponseEntity place(@Valid @RequestBody final BetDto betDto) {
         betService.place(betDto);
+        logger.info("Bet has been added successfully to database");
         return ResponseEntity.ok().build();
     }
 
