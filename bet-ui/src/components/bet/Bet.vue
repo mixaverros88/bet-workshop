@@ -67,6 +67,7 @@ import {addBet} from "@/api/api";
 import {ref} from "vue";
 import BaseToast from "@/components/common/BaseToast.vue";
 import {Bet} from "@/models/bet/Bet";
+import {AxiosResponse} from "axios";
 
 const isSuccess = ref(false);
 const hasError = ref(false);
@@ -85,9 +86,13 @@ const schema = yup.object({
 });
 
 function onSubmit(values: any) {
-  addBet(values).then(() => {
+  addBet(values).then((response: AxiosResponse) => {
     isSuccess.value = true
-    msg.value = "Bet has been accepted";
+    if (response.status === 200) {
+      msg.value = "Bet has been created Successfully";
+    } else {
+      msg.value = "Bet has been received";
+    }
     setTimeout(() => isSuccess.value = false, 3000);
   }).catch((error: any) => {
     hasError.value = true
