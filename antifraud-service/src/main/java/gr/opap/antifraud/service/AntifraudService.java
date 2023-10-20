@@ -18,7 +18,7 @@ public class AntifraudService {
                 betDto.getAwayTeam().equalsIgnoreCase("Alkmaar") &&
                 betDto.getAmount() > 1000
         ) {
-            logger.info("Antifraud service classified the bet: {} as invalid: ", betDto);
+            logger.info("Antifraud service classified the bet: {} as invalid", betDto);
             responseEntity = ResponseEntity
                 .badRequest()
                 .body(
@@ -28,7 +28,7 @@ public class AntifraudService {
                         betDto.getSelection())
                 );
         }else {
-            logger.info("Antifraud service classified the bet: {} as valid: ", betDto);
+            logger.info("Antifraud service classified the bet: {} as valid", betDto);
             responseEntity = ResponseEntity.ok().build();
         }
         return responseEntity;
