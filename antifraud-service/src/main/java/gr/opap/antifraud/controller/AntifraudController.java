@@ -2,6 +2,7 @@ package gr.opap.antifraud.controller;
 
 import gr.opap.antifraud.dto.BetDto;
 import gr.opap.antifraud.service.AntifraudService;
+import io.swagger.v3.oas.annotations.Operation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ public class AntifraudController {
     @Autowired
     AntifraudService antifraudService;
 
+    @Operation(summary = "Validate A Bet")
     @PostMapping
     public ResponseEntity<String> validateBet(@RequestBody final BetDto betDto) {
         logger.info("Antifraud controller has received bet: {}", betDto);
