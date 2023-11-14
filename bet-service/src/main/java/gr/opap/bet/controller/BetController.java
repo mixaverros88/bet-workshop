@@ -2,6 +2,7 @@ package gr.opap.bet.controller;
 
 import gr.opap.bet.dto.BetDto;
 import gr.opap.bet.service.BetService;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,12 +21,14 @@ public class BetController {
     @Autowired
     BetService betService;
 
+    @Operation(summary = "Place A Bet")
     @PostMapping
     public ResponseEntity place(@Valid @RequestBody final BetDto betDto) {
         betService.place(betDto);
         return ResponseEntity.accepted().build();
     }
 
+    @Operation(summary = "Retrieve all bets")
     @GetMapping
     public List<BetDto> retrieveBet() {
         return betService.retrieveBet();
